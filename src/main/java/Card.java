@@ -55,12 +55,15 @@ public class Card {
                 break;
         }
 
-        String[] priceSplit = splitedString[3].substring(1, splitedString[3].length() - 1).split(",");
+        splitedString[3] = splitedString[3].substring(1,splitedString[3].length()-1);
+        String[] listPrice = splitedString[3].split(",");
         Map<Gem, Integer> price = new HashMap();
-        price.put(Gem.WHITE, Integer.parseInt(priceSplit[0]));
-        price.put(Gem.BLUE, Integer.parseInt(priceSplit[1]));
-        price.put(Gem.BLACK, Integer.parseInt(priceSplit[4]));
-
+        price.put(Gem.WHITE, Integer.parseInt(listPrice[0]));
+        price.put(Gem.BLUE, Integer.parseInt(listPrice[1]));
+        price.put(Gem.GREEN, Integer.parseInt(listPrice[2]));
+        price.put(Gem.RED, Integer.parseInt(listPrice[3]));
+        price.put(Gem.BLACK, Integer.parseInt(listPrice[4]));
+        price.values().removeIf(f->f==0);
         Card result = new Card(Integer.parseInt(splitedString[0]), Integer.parseInt(splitedString[1]), gem, price);
         return result;
     }
