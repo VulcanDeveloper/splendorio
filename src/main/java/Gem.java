@@ -3,5 +3,6 @@ public enum Gem {
     BLUE,
     GREEN,
     RED,
-    BLACK
+    BLACK,
+    YELLOW
 }

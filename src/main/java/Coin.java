@@ -1,2 +1,8 @@
-public interface Coin {
+public class Coin {
+
+
+
+    public Gem getType() {
+        return null;
+    }
 }
