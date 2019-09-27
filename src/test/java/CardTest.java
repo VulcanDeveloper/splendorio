@@ -3,8 +3,6 @@ import org.junit.Test;
 
 public class CardTest {
 
-//    2.1|green|[2,3,0,0,2]
-
     @Test(expected = IllegalArgumentException.class)
     public void test_whenInputInvalidFormat_shouldThrowException() {
         Card.fromLine("2|green|[2,3,0,0,2]");
@@ -13,6 +11,12 @@ public class CardTest {
     @Test(expected = IllegalArgumentException.class)
     public void test_whenIncludeUnexpectCharacter_shouldThrowException() {
         Card.fromLine("2.1|green|[2,3,0,0,2]");
+    }
+
+    @Test
+    public void test_whenInputCharacterFiledGem_shouldCharacterIsLowerOnly() {
+        Card subject = Card.fromLine("2|green|[2,3,0,0,2]");
+        Assert.assertEquals(Gem.GREEN, subject.getResource());
     }
 
     @Test
