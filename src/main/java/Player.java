@@ -9,4 +9,10 @@ public class Player {
 
     private final String name;
 
+    @Override
+    public String toString() {
+        return "Player{" +
+                "name='" + name + '\'' +
+                '}';
+    }
 }

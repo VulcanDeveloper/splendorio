@@ -27,17 +27,20 @@ public class Game {
         }
 
         try {
+            final int playerSize = players.length - 1;
             Path deckFilePath = Paths.get(Main.class.getClassLoader().getResource("deck.txt").toURI());
-            deck = Files.lines(deckFilePath).map(card -> Card.fromLine(card)).collect(Collectors.toList());
+            deck = Files.lines(deckFilePath)
+                    .map(Card::fromLine)
+                    .collect(Collectors.toList());
             this.players = Stream.of(players)
-                    .map(player -> new Player(player))
+                    .map(Player::new)
                     .collect(Collectors.toList())
                     .toArray(new Player[players.length]);
-            coins.addAll(generateCoin(Gem.GREEN, COIN_SIZE[players.length - 1]));
-            coins.addAll(generateCoin(Gem.WHITE, COIN_SIZE[players.length - 1]));
-            coins.addAll(generateCoin(Gem.BLUE, COIN_SIZE[players.length - 1]));
-            coins.addAll(generateCoin(Gem.RED, COIN_SIZE[players.length - 1]));
-            coins.addAll(generateCoin(Gem.BLACK, COIN_SIZE[players.length - 1]));
+            coins.addAll(generateCoin(Gem.GREEN, COIN_SIZE[playerSize]));
+            coins.addAll(generateCoin(Gem.WHITE, COIN_SIZE[playerSize]));
+            coins.addAll(generateCoin(Gem.BLUE, COIN_SIZE[playerSize]));
+            coins.addAll(generateCoin(Gem.RED, COIN_SIZE[playerSize]));
+            coins.addAll(generateCoin(Gem.BLACK, COIN_SIZE[playerSize]));
             coins.addAll(generateCoin(Gem.YELLOW, 5));
         } catch (Exception e) {
             throw new GameInitialException();

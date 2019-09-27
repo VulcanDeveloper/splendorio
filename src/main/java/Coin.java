@@ -10,4 +10,11 @@ public class Coin {
     public Gem getType() {
         return type;
     }
+
+    @Override
+    public String toString() {
+        return "Coin{" +
+                "type=" + type +
+                '}';
+    }
 }
