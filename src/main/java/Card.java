@@ -37,6 +37,9 @@ public class Card {
 
         String[] splitedString = line.split("\\|");
         Gem gem = null;
+        if (splitedString.length!=4){
+            throw new IllegalArgumentException();
+        }
         switch (splitedString[2].toLowerCase()) {
             case "white":
                 gem = Gem.WHITE;

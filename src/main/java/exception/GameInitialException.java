@@ -1,4 +1,4 @@
 package exception;
 
-public class GameInitialException extends Exception {
+public class GameInitialException extends RuntimeException {
 }

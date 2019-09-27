@@ -7,20 +7,21 @@ import java.util.stream.Collectors;
 
 public class GameTest {
 
+    // Game('Golf','Jae','Pete','Ong','Bird')
 
     @Test(expected = GameInitialException.class)
     public void test_WhenHaveAPlayerGreaterThanFour_ShouldThrowException() {
-        new Game(5);
+        new Game("Golf","Jae","Pete","Ong","Bird");
     }
 
     @Test(expected = GameInitialException.class)
     public void test_WhenHaveAPlayerLessThanTwo_ShouldThrowException() {
-        new Game(1);
+        new Game("Golf");
     }
 
     @Test
     public void test_WhenHaveFourPlayer() {
-        Game subject = new Game(4);
+        Game subject = new Game("Golf","Jae","Pete","Ong");
 
         Collection<Coin> greenCoins = filterCoins(subject.getCoins(), Gem.GREEN);
         Collection<Coin> whiteCoins = filterCoins(subject.getCoins(), Gem.WHITE);
@@ -39,11 +40,17 @@ public class GameTest {
         Assert.assertEquals(90, subject.getDeck().size());
 
         Assert.assertEquals(4, subject.getPlayers().length);
+
+        Assert.assertEquals("Golf", subject.getPlayers()[0].getName());
+        Assert.assertEquals("Jae", subject.getPlayers()[1].getName());
+        Assert.assertEquals("Pete", subject.getPlayers()[2].getName());
+        Assert.assertEquals("Ong", subject.getPlayers()[3].getName());
+
     }
 
     @Test
     public void test_WhenHaveThreePlayer() {
-        Game subject = new Game(3);
+        Game subject = new Game("Golf","Jae","Pete");
 
         Collection<Coin> greenCoins = filterCoins(subject.getCoins(), Gem.GREEN);
         Collection<Coin> whiteCoins = filterCoins(subject.getCoins(), Gem.WHITE);
@@ -62,11 +69,16 @@ public class GameTest {
         Assert.assertEquals(90, subject.getDeck().size());
 
         Assert.assertEquals(3, subject.getPlayers().length);
+
+        Assert.assertEquals("Golf", subject.getPlayers()[0].getName());
+        Assert.assertEquals("Jae", subject.getPlayers()[1].getName());
+        Assert.assertEquals("Pete", subject.getPlayers()[2].getName());
+
     }
 
     @Test
     public void test_WhenHaveTwoPlayer() {
-        Game subject = new Game(2);
+        Game subject = new Game("Golf","Jae");
 
         Collection<Coin> greenCoins = filterCoins(subject.getCoins(), Gem.GREEN);
         Collection<Coin> whiteCoins = filterCoins(subject.getCoins(), Gem.WHITE);
@@ -85,6 +97,8 @@ public class GameTest {
         Assert.assertEquals(90, subject.getDeck().size());
 
         Assert.assertEquals(2, subject.getPlayers().length);
+        Assert.assertEquals("Golf", subject.getPlayers()[0].getName());
+        Assert.assertEquals("Jae", subject.getPlayers()[1].getName());
     }
 
 
