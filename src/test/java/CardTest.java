@@ -15,7 +15,7 @@ public class CardTest {
 
     @Test
     public void test_whenInputCharacterFiledGem_shouldCharacterIsLowerOnly() {
-        Card subject = Card.fromLine("2|green|[2,3,0,0,2]");
+        Card subject = Card.fromLine("2|1|green|[2,3,0,0,2]");
         Assert.assertEquals(Gem.GREEN, subject.getResource());
     }
 
