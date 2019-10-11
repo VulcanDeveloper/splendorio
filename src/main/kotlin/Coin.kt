@@ -1,0 +1,1 @@
+data class Coin(val type: Gem)

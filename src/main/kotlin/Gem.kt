@@ -1,4 +1,4 @@
-public enum Gem {
+enum class Gem {
     WHITE,
     BLUE,
     GREEN,
