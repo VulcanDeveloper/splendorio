@@ -1,18 +1,17 @@
+package domain
+
 import exception.GameInitialException
 
 import java.nio.file.Files
-import java.nio.file.Path
 import java.nio.file.Paths
-import java.util.ArrayList
 import java.util.stream.Collectors
-import java.util.stream.IntStream
-import java.util.stream.Stream
 
 class Game(vararg players: String) {
 
     val deck: Collection<Card>
     val coins: List<Coin>
     val players: List<Player>
+    val nobles: Array<Noble> = emptyArray()
 
 
     private fun generateCoin(type: Gem, size: Int) = (1..size).map { Coin(type) }
@@ -31,7 +30,7 @@ class Game(vararg players: String) {
                     .collect(Collectors.toList())
 
             this.players = players.map { Player(it) }
-            val coinSize = COIN_SIZE[players.size] ?: error("Player size invalid")
+            val coinSize = COIN_SIZE[players.size] ?: error("model.Player size invalid")
             val green =  generateCoin(Gem.GREEN, coinSize)
             val white =  generateCoin(Gem.WHITE, coinSize)
             val blue =  generateCoin(Gem.BLUE, coinSize)

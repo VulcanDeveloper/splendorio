@@ -1,10 +1,13 @@
 import exception.GameInitialException
+import domain.Coin
+import domain.Game
+import domain.Gem
 import org.junit.Assert
 import org.junit.Test
 
 class GameTest {
 
-    // Game('Golf','Jae','Pete','Ong','Bird')
+    // model.Game('Golf','Jae','Pete','Ong','Bird')
 
     @Test(expected = GameInitialException::class)
     fun `When have a player greater than four - Should Throw Exception`() {
@@ -16,7 +19,8 @@ class GameTest {
         Game("Golf")
     }
     @Test
-    fun `When have four player - Success`() {
+    fun `When input four player - Should Initial Game with 7 coins each and 5 yellow coins, 90 cards, 4 players, 5 nobles`() {
+        TODO("check 5 nobles")
         val subject = Game("Golf", "Jae", "Pete", "Ong")
 
         val greenCoins = filterCoins(subject.coins, Gem.GREEN)
@@ -45,7 +49,8 @@ class GameTest {
     }
 
     @Test
-    fun `When have three player - Success`() {
+    fun `When have three player - Should Initial Game with 5 coins each and 5 yellow coins, 90 cards, 3 players, 4 nobles`() {
+        TODO("check 4 nobles")
         val subject = Game("Golf", "Jae", "Pete")
 
         val greenCoins = filterCoins(subject.coins, Gem.GREEN)
@@ -73,7 +78,8 @@ class GameTest {
     }
 
     @Test
-    fun `When have two player - Success`() {
+    fun `When have two player  - Should Initial Game with 4 coins each and 5 yellow coins, 90 cards, 2 players, 3 nobles`() {
+        TODO("check 3 nobles")
         val subject = Game("Golf", "Jae")
 
         val greenCoins = filterCoins(subject.coins, Gem.GREEN)

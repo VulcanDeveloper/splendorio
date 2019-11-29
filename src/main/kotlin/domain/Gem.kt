@@ -1,3 +1,5 @@
+package domain
+
 enum class Gem {
     WHITE,
     BLUE,

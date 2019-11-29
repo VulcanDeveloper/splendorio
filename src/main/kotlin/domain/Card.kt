@@ -1,3 +1,5 @@
+package domain
+
 import java.lang.IllegalArgumentException
 
 class Card private constructor(
